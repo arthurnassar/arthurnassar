@@ -50,22 +50,27 @@ class FrontendDev {
   }
  
   greet(): string {
-    return `Hello, my name is ${ this.name } and I`m ${ this.age } years old`;
+    console.log(`Hello, my name is ${ this.name } and I'm ${ this.age } years old`)
+    return `Hello, my name is ${ this.name } and I'm ${ this.age } years old`
   }
   
+  
   myTechnologies(): string {   
+    console.log(`As a developer I have knowledge about those things: ${ this.technologies.join(', ') }`)
     return `As a developer I have knowledge about those things: ${ this.technologies.join(', ') }`
   }
   
   myLanguages(): string {
     let answer: string[] = []
-    this.languages.forEach(language: void => {
-      answer.push(${ language.level } ${ language.name })
+    this.languages.forEach((language: any) => {
+      answer.push(`${ language.level } ${ language.name }`)
     })
+    console.log(`I can speak and write ${ answer.join(', ') }`)
     return `I can speak and write ${ answer.join(', ') }`
   }
   
-  wishlist(): string {
+  returnWishlist(): string {
+    console.log(`I wish to ${ this.wishlist.join(', ') }`)
     return `I wish to ${ this.wishlist.join(', ') }`
   }
 }
@@ -74,7 +79,7 @@ let me = new FrontendDev(
   'Arthur Nassar',
   26,
   ['HTML', 'CSS', 'Bootstrap', 'SASS', 'Javascript', 'VueJS', 'Vue Router', 'Vuex', 'React', 'Redux', 'React Router', 'Typescript', 'MongoDB', 'NestJS', 'PHP'],
-  [ { name: 'Portuguese', level: 'native' }, { name: 'English', level: 'advanced' }, { name: 'French'; level: 'beginner' } ],
+  [ { name: 'Portuguese', level: 'native' }, { name: 'English', level: 'advanced' }, { name: 'French', level: 'beginner' } ],
   [ 'Finish my ongoing React pathfinder project', 'Write an academic article about front-end technologies', 'Participate in a software development presencial event' ]
   );
   
@@ -87,7 +92,7 @@ let me = new FrontendDev(
   me.myLanguages()
   // I can speak and write native Portuguese, advanced English, beginner French
   
-  me.wishlist()
+  me.returnWishlist()
   // I wish to Finish my ongoing React pathfinder project, Write an academic article about front-end technologies, Participate in a software development presencial event
 ```
 
